@@ -154,6 +154,30 @@ class Chatbot {
 
     // Generate AI response
     async generateResponse(userMessage) {
+        // Try OpenAI backend first
+        try {
+            const response = await fetch('http://localhost:5000/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: userMessage })
+            });
+            const data = await response.json();
+            if (data.reply) {
+                return data.reply;
+            } else if (data.error) {
+                return 'AI error: ' + data.error;
+            }
+        } catch (e) {
+            // Fallback to rule-based if backend is not available
+            console.warn('OpenAI backend not available, using rule-based fallback.');
+        }
+        // Fallback: rule-based
+        return this.generateRuleBasedResponse(userMessage);
+    }
+
+    generateRuleBasedResponse(userMessage) {
         const message = userMessage.toLowerCase();
         
         // Check for exact matches first
