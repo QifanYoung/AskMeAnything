@@ -229,6 +229,10 @@ Feel free to reach out for collaborations, opportunities, or just to chat about 
 
 This project is open source and available under the [MIT License](LICENSE).
 
+## 📸 Profile Image
+
+The profile headshot used on the page is located at `assets/profile.jpg`. To update your headshot, simply replace this file with a new image of your choice.
+
 ---
 
 *Built with ❤️ and modern web technologies*
