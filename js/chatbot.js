@@ -161,7 +161,7 @@ class Chatbot {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ message: userMessage })
+                body: JSON.stringify({ message: userMessage, resume: CONFIG })
             });
             const data = await response.json();
             if (data.reply) {
