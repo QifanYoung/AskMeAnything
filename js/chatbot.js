@@ -156,7 +156,7 @@ class Chatbot {
     async generateResponse(userMessage) {
         // Try OpenAI backend first
         try {
-            const response = await fetch('http://localhost:5000/chat', {
+            const response = await fetch('https://chatapi-138833309892.northamerica-northeast2.run.app/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
